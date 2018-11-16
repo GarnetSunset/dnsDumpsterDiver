@@ -45,3 +45,5 @@ for link in soup.find_all('a', href=True):
     if "https://dnsdumpster.com/static/xls/" in link['href']:
         r = requests.get(link['href'], allow_redirects=True)
         open(host+'.xlsx', 'wb').write(r.content)
+        r = requests.get("https://dnsdumpster.com/static/map/"+host+".png", allow_redirects=True)
+        open(host+'.png', 'wb').write(r.content)
